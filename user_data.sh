@@ -1,7 +1,7 @@
 #!/bin/bash
 yum update -y
-yum install -y nginx
-systemctl start nginx
+amazon-linux-extras install nginx1 -y
 systemctl enable nginx
+systemctl start nginx
 
-echo "<h1>Deployed with Terraform 🚀</h1>" > /usr/share/nginx/html/index.html
+echo "healthy" > /usr/share/nginx/html/index.html
