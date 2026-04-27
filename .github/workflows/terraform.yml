@@ -6,14 +6,24 @@ on:
       - main
   pull_request:
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   terraform:
-    name: Terraform Format and Validate
+    name: Terraform Format Validate Plan
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::822849401749:role/GitHubActionsTerraformPlanRole
+          aws-region: us-east-1
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
@@ -26,3 +36,6 @@ jobs:
 
       - name: Terraform Validate
         run: terraform validate
+
+      - name: Terraform Plan
+        run: terraform plan
