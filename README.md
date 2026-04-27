@@ -64,3 +64,21 @@ Auto Scaling Group (ASG)
 Security Groups & Traffic Control
 Modular Terraform Architecture
 Git & GitHub Workflow
+
+## Live Demo
+
+Application is accessible via AWS Application Load Balancer:
+
+http://alb-asg-project-alb-1979684669.us-east-1.elb.amazonaws.com
+
+
+This web page is served from EC2 instances managed by an Auto Scaling Group behind an Application Load Balancer.
+
+## Features
+
+- Fully automated infrastructure using Terraform
+- Load-balanced traffic using AWS ALB
+- Auto Scaling Group for high availability
+- Dynamic EC2 provisioning with user data (Nginx + custom UI)
+- CI pipeline with GitHub Actions (format, validate, plan)
+- Secure AWS authentication using OIDC (no static credentials)
