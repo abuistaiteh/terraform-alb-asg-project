@@ -1,6 +1,6 @@
 variable "project_name" {
   description = "project name used for resource naming"
-  type = string
+  type        = string
 }
 variable "vpc_cidr" {
   type = string
